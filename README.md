@@ -42,8 +42,8 @@ $VCPKG_ROOT/vcpkg install opentelemetry-cpp microhttpd protobuf grpc
 ### **2️⃣ Clone and Build**
 
 ```bash
-git clone <repository_url>
-cd <repository_folder>
+git clone https://github.com/GSSJacky/opentelemetry-c-integration
+cd opentelemetry-c-integration
 mkdir build && cd build
 cmake .. -DCMAKE_TOOLCHAIN_FILE=$CMAKE_TOOLCHAIN_FILE
 make -j$(sysctl -n hw.logicalcpu)
