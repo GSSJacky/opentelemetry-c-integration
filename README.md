@@ -3,7 +3,7 @@
 ## **Overview**
 This project demonstrates how to integrate **OpenTelemetry C++ SDK** into a **C-based application** to enable distributed tracing, metrics, and logging. The application exports telemetry data using the **OTLP (gRPC/HTTP) protocol** either through an **OpenTelemetry Agent** or directly to **Instana Backend**.
 
-For more details, refer to the official documentation: [IBM Instana OpenTelemetry C SDK](https://www.ibm.com/docs/en/instana-observability/current?topic=sdks-c)
+For more details, refer to the official documentation: [IBM Instana OpenTelemetry C++ SDK](https://www.ibm.com/docs/en/instana-observability/current?topic=sdks-c)
 
 The implementation includes:
 - **Tracing**: Capturing application requests and tracking execution across services.
