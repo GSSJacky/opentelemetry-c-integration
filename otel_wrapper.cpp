@@ -31,7 +31,13 @@ namespace nostd = opentelemetry::nostd;
 // Tracer initialization
 void InitTracer()
 {
-    auto exporter = std::make_unique<opentelemetry::exporter::otlp::OtlpGrpcExporter>();
+
+    opentelemetry::exporter::otlp::OtlpGrpcExporterOptions options;
+    options.endpoint = std::getenv("OTEL_EXPORTER_OTLP_TRACES_ENDPOINT") ? std::getenv("OTEL_EXPORTER_OTLP_TRACES_ENDPOINT") : "http://localhost:4317";
+    
+    auto exporter = std::make_unique<opentelemetry::exporter::otlp::OtlpGrpcExporter>(options);
+    // auto exporter = std::make_unique<opentelemetry::exporter::otlp::OtlpGrpcExporter>();
+    
     auto processor = std::make_unique<trace_sdk::SimpleSpanProcessor>(std::move(exporter));
 
     std::vector<std::unique_ptr<trace_sdk::SpanProcessor>> processors;
