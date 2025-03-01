@@ -54,10 +54,20 @@ make -j$(sysctl -n hw.logicalcpu)
 ### **3️⃣ Set Up OpenTelemetry & Instana**
 
 Before running the server, set the **OpenTelemetry environment variables**:
+
+a.Send data via Instana Agent:
 ```bash
 export OTEL_SERVICE_NAME="ClangOTELServiceJacky"
 export OTEL_EXPORTER_OTLP_INSECURE=true
 export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT="http://localhost:4317"
+```
+
+b.Send data to Instana SaaS OTLP Acceptor directly:
+```bash
+export OTEL_SERVICE_NAME="ClangOTELServiceJacky"
+export OTEL_EXPORTER_OTLP_INSECURE=false
+export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT="https://otlp-[RegionName]-saas.instana.io:4317"
+export OTEL_EXPORTER_OTLP_HEADERS="x-instana-key=[AgentkeyXXXXX]"
 ```
 
 ---
